@@ -1,0 +1,3 @@
+export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+gcc -fPIC -c common_NativeSleep.c -I $JAVA_HOME/include -I $JAVA_HOME/include/linux
+gcc common_NativeSleep.o -shared -o libnativesleep.so -Wl,-soname,nativesleep
